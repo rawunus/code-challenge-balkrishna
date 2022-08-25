@@ -3,7 +3,7 @@
 
 const concurrencyMax = 4;
 
-// Sheduler timeout 
+// Sheduler timeout
 function scheduler(cb, taskName, delay) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -38,6 +38,6 @@ let cb = (taskName) => {
 // Sheduler modifie if needed
 let modifiedScheduler = concurrencyLimit(scheduler, concurrencyMax);
 
-// executing  
+// executing
 const exe = () => taskList.map((t) => modifiedScheduler(cb, t, 1000));
 exe();
